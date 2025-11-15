@@ -1,0 +1,68 @@
+/* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0; /* Reiniciamos margen para que la imagen ocupe todo */
+  background-color: #f4f4f4;
+  
+  /* --- IMAGEN DE FONDO --- */
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Torricelli%27s_Law.svg/1024px-Torricelli%27s_Law.svg.png'); /* <--- CAMBIA ESTA URL POR LA IMAGEN QUE QUIERAS */
+  background-size: cover; /* Cubre todo el fondo sin dejar espacios */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
+  background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll (opcional) */
+  color: #333; /* Color de texto para que contraste con el fondo */
+  display: flex; /* Para centrar el contenido verticalmente si el body es más grande */
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
+}
+
+/* Estilos para las "vistas" (para que el texto sea legible sobre la imagen) */
+div {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente para legibilidad */
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra para dar profundidad */
+}
+
+/* Ocultar la calculadora por defecto */
+#calculadora {
+  display: none;
+}
+
+/* Estilos para inputs y botones */
+input, button {
+  display: block;
+  width: 90%;
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  border: none; /* Quitamos el borde por defecto del botón */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+label {
+  margin-top: 10px;
+  font-weight: bold;
+  color: #555; /* Un color de texto un poco más oscuro para las etiquetas */
+}
+
+#resultado {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #0056b3;
+}
