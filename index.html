@@ -1,22 +1,55 @@
-<div id="inicio">
-  <h2>Calculadora de Vaciado de Tanques</h2>
-  <p>Basada en la ecuación de Torricelli para tanques cilíndricos.</p>
-  <button id="btnInicio">Iniciar Calculadora</button>
-</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora de Vaciado (Torricelli)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<div id="calculadora">
-  <h3>Calculadora de Vaciado</h3>
-  
-  <label for="alturaAgua">Altura del agua al orificio (h₀) en metros:</label>
-  <input type="number" id="alturaAgua" placeholder="Ej: 10">
-  
-  <label for="radioTanque">Radio del recipiente (Rₜ) en metros:</label>
-  <input type="number" id="radioTanque" placeholder="Ej: 2">
-  
-  <label for="radioOrificio">Radio del orificio (rₒ) en metros:</label>
-  <input type="number" id="radioOrificio" placeholder="Ej: 0.1">
-  
-  <button id="btnCalcular">Calcular Tiempo</button>
-  
-  <p id="resultado"></p>
-</div>
+  <div id="inicio" class="card">
+    <h2>Calculadora de Vaciado de Tanques</h2>
+    <p class="intro-text">Una herramienta didáctica para calcular el tiempo de vaciado de tanques cilíndricos basada en la Ley de Torricelli.</p>
+    <button id="btnInicio">Iniciar Calculadora</button>
+  </div>
+
+  <div id="calculadora" class="card">
+    <h3>Calculadora de Vaciado</h3>
+    
+    <p class="description">
+      Esta herramienta determina el tiempo (T) necesario para vaciar un tanque cilíndrico. 
+      El cálculo utiliza la altura inicial del líquido y la relación entre el área del tanque (A) y el área del orificio de salida (a).
+    </p>
+    
+    <div class="equation-box">
+      <img src="https://latex.codecogs.com/svg.image?\huge&space;T=\frac{2A}{a\sqrt{2g}}\sqrt{h_0}" alt="Formula Torricelli" class="math-img">
+    </div>
+
+    <div class="form-container">
+      <div class="input-group">
+        <label for="alturaAgua">Altura del agua (h₀) en metros:</label>
+        <input type="number" id="alturaAgua" placeholder="Ej: 0.111" step="any">
+      </div>
+      
+      <div class="input-group">
+        <label for="radioTanque">Radio del recipiente (R para calc. A) en metros:</label>
+        <input type="number" id="radioTanque" placeholder="Ej: 0.0955" step="any">
+      </div>
+      
+      <div class="input-group">
+        <label for="radioOrificio">Radio del orificio (r para calc. a) en metros:</label>
+        <input type="number" id="radioOrificio" placeholder="Ej: 0.0075" step="any">
+      </div>
+    </div>
+    
+    <button id="btnCalcular">Calcular Tiempo</button>
+    
+    <div id="resultado-container">
+      <p id="resultado"></p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

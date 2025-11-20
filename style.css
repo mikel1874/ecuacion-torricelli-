@@ -1,68 +1,126 @@
-/* Estilos generales */
+/* Reseteo y base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  margin: 0; /* Reiniciamos margen para que la imagen ocupe todo */
-  background-color: #f4f4f4;
-  
-  /* --- IMAGEN DE FONDO --- */
-  background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Torricelli%27s_Law.svg/1024px-Torricelli%27s_Law.svg.png'); /* <--- CAMBIA ESTA URL POR LA IMAGEN QUE QUIERAS */
-  background-size: cover; /* Cubre todo el fondo sin dejar espacios */
-  background-position: center; /* Centra la imagen */
-  background-repeat: no-repeat; /* Evita que la imagen se repita */
-  background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll (opcional) */
-  color: #333; /* Color de texto para que contraste con el fondo */
-  display: flex; /* Para centrar el contenido verticalmente si el body es más grande */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #eef2f5;
+  /* Imagen de fondo sugerida (tema agua) */
+  background-image: url('https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=2070&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la ventana */
-}
-
-/* Estilos para las "vistas" (para que el texto sea legible sobre la imagen) */
-div {
-  max-width: 400px;
-  margin: 20px auto;
+  min-height: 100vh;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente para legibilidad */
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2); /* Sombra para dar profundidad */
 }
 
-/* Ocultar la calculadora por defecto */
-#calculadora {
-  display: none;
+/* Tarjeta Principal */
+.card {
+  background-color: rgba(255, 255, 255, 0.96);
+  width: 100%;
+  max-width: 500px;
+  padding: 35px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  backdrop-filter: blur(5px); /* Efecto de desenfoque detrás de la tarjeta */
 }
 
-/* Estilos para inputs y botones */
-input, button {
+#calculadora { display: none; }
+
+/* Tipografía */
+h2, h3 { color: #004e92; margin-bottom: 15px; }
+
+.intro-text { color: #333; margin-bottom: 25px; line-height: 1.5; }
+
+/* Descripción más oscura y legible */
+.description {
+  font-size: 0.95rem;
+  color: #2c3e50; /* Gris muy oscuro, casi negro */
+  margin-bottom: 20px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+/* --- MARCO DE LA ECUACIÓN (EL EFECTO QUE PEDISTE) --- */
+.equation-box {
+  background-color: #f8f9fa;
+  border: 2px solid #e1e4e8; /* Borde gris suave */
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px 0;
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.05); /* Sombra interna para profundidad */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.math-img {
+  max-width: 100%;
+  height: auto;
+  min-height: 50px; /* Asegura que la fórmula se vea bien */
+}
+
+/* Formularios */
+.form-container { text-align: left; margin-top: 20px; }
+
+.input-group { margin-bottom: 15px; }
+
+label {
   display: block;
-  width: 90%;
-  padding: 10px;
-  margin: 10px auto;
-  border-radius: 5px;
-  border: 1px solid #ddd;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: #34495e;
+  font-size: 0.9rem;
 }
 
+input[type="number"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ced4da;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: all 0.3s;
+}
+
+input[type="number"]:focus {
+  border-color: #004e92;
+  box-shadow: 0 0 0 3px rgba(0, 78, 146, 0.1);
+  outline: none;
+}
+
+/* Botones */
 button {
-  background-color: #007bff;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(135deg, #004e92 0%, #000428 100%); /* Gradiente elegante */
   color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
   cursor: pointer;
-  border: none; /* Quitamos el borde por defecto del botón */
+  margin-top: 15px;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 button:hover {
-  background-color: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 78, 146, 0.3);
 }
 
-label {
-  margin-top: 10px;
-  font-weight: bold;
-  color: #555; /* Un color de texto un poco más oscuro para las etiquetas */
+/* Resultado */
+#resultado-container {
+  margin-top: 25px;
+  min-height: 1.5em;
 }
 
 #resultado {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #0056b3;
+  color: #004e92;
+  font-weight: 700;
+  font-size: 1.2rem;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
 }
